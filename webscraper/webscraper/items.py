@@ -6,7 +6,10 @@
 import scrapy
 
 
-class WebscraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class KrishaItem(scrapy.Item):
+    price = scrapy.Field()
+    info = scrapy.Field()
+    address = scrapy.Field()
+    description = scrapy.Field()
+    owner = scrapy.Field()
+    category = scrapy.Field()

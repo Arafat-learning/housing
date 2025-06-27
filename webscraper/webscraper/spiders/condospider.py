@@ -1,4 +1,5 @@
 import scrapy
+from webscraper.items import KrishaItem
 
 
 class CondoSpider(scrapy.Spider):
@@ -10,10 +11,13 @@ class CondoSpider(scrapy.Spider):
         cards = response.css("div.a-card")
 
         for card in cards:
-            yield {
-            "price": card.css("div.a-card__price::text").get(),
-            "info": card.css("a.a-card__title::text").get(),
-            "address": card.css("div.a-card__subtitle::text").get(),
-            "description": card.css("div.a-card__text-preview::text").get(),
-            "owner": card.css("div.a-card__owner").attrib["class"]
-            }
+
+            card_item = KrishaItem()
+            card_item["price"] = card.css("div.a-card__price::text").get()
+            card_item["info"] = card.css("a.a-card__title::text").get()
+            card_item["address"] = card.css("div.a-card__subtitle::text").get()
+            card_item["description"] = card.css("div.a-card__text-preview::text").get()
+            card_item["owner"] = card.css("div.a-card__owner").attrib["class"]
+            card_item["category"] = "condominium"
+
+            yield card_item
