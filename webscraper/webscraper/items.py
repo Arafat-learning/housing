@@ -13,3 +13,4 @@ class KrishaItem(scrapy.Item):
     description = scrapy.Field()
     owner = scrapy.Field()
     category = scrapy.Field()
+    city = scrapy.Field()

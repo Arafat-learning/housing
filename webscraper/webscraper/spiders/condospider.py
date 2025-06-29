@@ -19,5 +19,6 @@ class CondoSpider(scrapy.Spider):
             card_item["description"] = card.css("div.a-card__text-preview::text").get()
             card_item["owner"] = card.css("div.a-card__owner").attrib["class"]
             card_item["category"] = "condominium"
+            card_item["city"] = "Astana"
 
             yield card_item
