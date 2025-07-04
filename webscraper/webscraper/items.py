@@ -9,6 +9,9 @@ import scrapy
 class KrishaItem(scrapy.Item):
     price = scrapy.Field()
     info = scrapy.Field()
+    room_count = scrapy.Field()
+    area = scrapy.Field()
+    floor = scrapy.Field()
     address = scrapy.Field()
     description = scrapy.Field()
     owner = scrapy.Field()
