@@ -15,11 +15,18 @@ NEWSPIDER_MODULE = "webscraper.spiders"
 ADDONS = {}
 
 
+FEEDS = {
+    'data/%(name)s/_%(time)s.csv': {
+        'format': 'csv',
+        }
+}
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "webscraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
