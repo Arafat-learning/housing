@@ -35,3 +35,9 @@ class CondoSpider(scrapy.Spider):
                 card_item["floor"] = None
 
             yield card_item
+
+        # scraping next page    
+        next_page_address = response.css("a.paginator__btn--next").attrib["href"]
+        if next_page_address != None:
+            next_page_url = "https://krisha.kz" + next_page_address
+            yield response.follow(next_page_url, callback = self.parse)
