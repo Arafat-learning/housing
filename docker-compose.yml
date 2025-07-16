@@ -1,9 +1,13 @@
 version: '3.8'
 services:
   scrapy:
-    build: .
+    build:
+      context: .
+      dockerfile: dockerfile
     volumes:
-      - .:/app
+      - ./webscraper:/app
     stdin_open: true
     tty: true
     working_dir: /app
+    environment: 
+      - INSTALL_REQUIREMENTS=true

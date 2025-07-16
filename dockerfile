@@ -15,5 +15,8 @@ RUN apt-get update && apt-get install -y \
 # Install Scrapy
 RUN pip install scrapy
 
-# Keep container running for interactive use
-CMD ["bash"]
+# Install script
+COPY install_requirements.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/install_requirements.sh
+
+CMD ["/usr/local/bin/install_requirements.sh"]
